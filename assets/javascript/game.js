@@ -1,9 +1,44 @@
+// Function to execute the code when the page loads
 $(document).ready(function(){
+// Set the variable = to function to call it
 var scoreToGet= scoreGoal();
+var scoreSoFar= 0;
 function scoreGoal () {
-    return Math.floor(Math.random()*241)+10
+// Setting the random number between 1 and 240, then adding 10 so it can get to 250
+    return Math.floor(Math.random()*102)+19
 } 
 console.log(scoreToGet);
+// Displaying the random number on "Score to get"
 $("#scoreToGet").text(scoreToGet);
-console.log($("#scoreToGet"))
+var greenDiamond = green();
+var redDiamond= red();
+var blueDiamond= blue();
+var brownDiamond= brown();
+
+function green () {
+    return Math.floor(Math.random()*12)+1
+}
+function red () {
+    return Math.floor(Math.random()*12)+1
+}
+function blue () {
+    return Math.floor(Math.random()*12)+1
+}
+function brown () {
+    return Math.floor(Math.random()*12)+1
+}
+// Assigning function value to each diamond
+$("#green").attr('data-value', greenDiamond);
+$("#red").attr('data-value', redDiamond);
+$("#blue").attr('data-value', blueDiamond);
+$("#brown").attr('data-value', brownDiamond);
+// On click event to call each diamond function (function green, function blue...)
+$(".diamonds").on("click", function(event){
+// Console log of $(this) to make sure $(".diamonds") is working to assign a value to each diamond and being the same each click
+    console.log($(this).attr('data-value'));
+    scoreSoFar += parseInt($(this).attr('data-value'));
+    console.log(scoreSoFar);
+$("#scoreSoFar").text(scoreSoFar);
+  });
+
 });
