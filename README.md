@@ -1,2 +1,2 @@
 # unit-4-game
-Crystals Collector game
+Diamond Collector game
