@@ -42,6 +42,12 @@ function resetGame() {
     scoreToGet= scoreGoal();
     scoreSoFar=0;
     diamondsValue();
+        $("#green").attr('data-value', greenDiamond);
+        $("#red").attr('data-value', redDiamond);
+        $("#blue").attr('data-value', blueDiamond);
+        $("#brown").attr('data-value', brownDiamond);
+    $("#scoreToGet").text(scoreToGet);
+    $("#scoreSoFar").text(scoreSoFar);
 }
 
 // On click event to call each diamond function (function green, function blue...)
@@ -53,12 +59,13 @@ $(".diamonds").on("click", function(event){
 $("#scoreSoFar").text(scoreSoFar);
 if(scoreSoFar === scoreToGet){
     console.log("You won!");
+    resetGame();
     wins++;
     $("#wins").text(wins);
 }else if (scoreSoFar > scoreToGet){
     loses++;
     resetGame();
-    $("loses").text(loses);
+    $("#loses").text(loses);
 }
   });
 
